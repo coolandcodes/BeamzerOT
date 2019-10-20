@@ -10,8 +10,11 @@ This library helps app developers setup **Collaborative Editing** quickly and ea
 
 
 var beam = new BeamzerClient({
-   "url":"https://service.beamzer.co/hub",
-   "params":"topic=akstream"
+   source:"https://service.beamzer.co/hub",
+   params:{
+      topic:"activity/stream"
+   },
+   options: { crossdomain: true }
 });
 
 beam.start(
@@ -38,3 +41,6 @@ new Beamzer.ot.ConnectAdapter(
 
 
 ```
+
+## License
+MIT
