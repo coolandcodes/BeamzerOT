@@ -12,7 +12,7 @@ This library helps app developers setup **Collaborative Editing** quickly and ea
 const beam = new BeamzerClient({
    source:"https://service.beamzer.co/hub",
    params:{
-      topic:"activity/stream"
+      topic:"https://app.beamzer.co/{username}/activity/stream"
    },
    options: { crossdomain: true }
 });
