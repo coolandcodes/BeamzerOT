@@ -3,11 +3,11 @@
 ot.ConnectAdapter = (function () {
   'use strict';
 
-  function ConnectAdapter (basePath, clientName, serverAdapter, revision) {
-    if (basePath[basePath.length - 1] !== '/') { basePath += '/'; }
+  function ConnectAdapter (clientName, serverAdapter, revision) {
+    // if (basePath[basePath.length - 1] !== '/') { basePath += '/'; }
     var that = this;
 
-    that.path = basePath;
+    that.path = '/hub/ot/';
     that.origin = "https://app.beamzer.co";
     that.ownUserName = clientName;
     that.majorRevision = revision.major || 0;
