@@ -9,7 +9,7 @@ This library helps app developers setup **Collaborative Editing** quickly and ea
 ```js
 
 
-var beam = new BeamzerClient({
+const beam = new BeamzerClient({
    source:"https://service.beamzer.co/hub",
    params:{
       topic:"activity/stream"
@@ -29,9 +29,8 @@ beam.start(
     }
 )
 
-new Beamzer.ot.ConnectAdapter(
-    '/ot', 
-    '@charles', 
+const connect = new Beamzer.ot.ConnectAdapter( 
+    '@charles', // '@charles' can also be replace with a browser-fingerprint
     new Beamzer.ot.EventSourceServerAdapter(
         beam, 
         null
@@ -39,6 +38,25 @@ new Beamzer.ot.ConnectAdapter(
     {}
 );
 
+const editor = new Beamzer.ot.CodeMirrorAdapter(
+
+);
+
+const otClient = new Beamzer.ot.EditorClient(
+   0, // revision
+   {
+      '@henrianan':{
+         name: "Henry Ananaba", 
+         selection: null
+      }, 
+      '@abufk': {
+         name: "Feyikemi Abudu",
+         selection: null
+      }
+   },
+   connect,
+   editor
+)
 
 ```
 
