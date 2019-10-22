@@ -44,7 +44,8 @@ const editor = new Beamzer.ot.CodeMirrorAdapter(
 
 const otClient = new Beamzer.ot.EditorClient(
    0, // revision
-   {
+   document.querySelector('ul.user-list[online]'), // clients list on UI
+   { // clients
       '@henrianan':{
          name: "Henry Ananaba", 
          selection: null

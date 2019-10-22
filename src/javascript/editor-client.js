@@ -109,13 +109,13 @@ ot.EditorClient = (function () {
     };
   
   
-    function EditorClient (revision, clients, serverAdapter, editorAdapter) {
+    function EditorClient (revision, ulDOMElem, clients, serverAdapter, editorAdapter) {
       Client.call(this, revision);
       this.serverAdapter = serverAdapter;
       this.editorAdapter = editorAdapter;
       this.undoManager = new UndoManager();
   
-      this.initializeClientList();
+      this.initializeClientList(ulDOMElem);
       this.initializeClients(clients);
   
       var self = this;
@@ -214,8 +214,8 @@ ot.EditorClient = (function () {
       delete this.clients[clientId];
     };
   
-    EditorClient.prototype.initializeClientList = function () {
-      this.clientListEl = document.createElement('ul');
+    EditorClient.prototype.initializeClientList = function (elem) {
+      this.clientListEl = elem || document.createElement('ul');
     };
   
     EditorClient.prototype.applyUnredo = function (operation) {
